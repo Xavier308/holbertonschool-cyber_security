@@ -1,1 +1,1 @@
-tcp.flags.fin == 1 and tcp.flags.syn == 0 and tcp.flags.ack == 0 and tcp.flags.psh == 0 and tcp.flags.urg == 0 and tcp.flags.rst == 0 and ip.src == 172.22.101.90 and ip.dst == 172.217.17.110 and tcp.window_size == 1024 and tcp.dstport == 23
+tcp.flags == 0x01 and ip.src == 172.22.101.90 and ip.dst == 172.217.17.110 and tcp.window_size == 1024 and tcp.dstport == 23
