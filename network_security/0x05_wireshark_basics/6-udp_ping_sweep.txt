@@ -1,0 +1,1 @@
+udp and ip.src == 172.22.101.90 and ip.dst == 142.250.200.206 and udp.dstport == 40125
