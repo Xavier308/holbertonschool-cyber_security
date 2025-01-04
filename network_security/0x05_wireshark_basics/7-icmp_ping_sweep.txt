@@ -1,1 +1,1 @@
-(icmp.type == 8 and ip.src == 172.22.101.90 and ip.dst == 142.250.1.0) or (icmp.type == 8 and ip.src == 172.22.101.90 and ip.dst == 142.250.1.0)
+(icmp.type == 8 and ip.src == 172.22.101.90 and ip.dst == 142.250.1.0) or (icmp.type == 0 and ip.src == 142.250.1.0 and ip.dst == 172.22.101.90)
