@@ -1,1 +1,1 @@
-arp.opcode == 1 and arp.dst.hw_mac == ff:ff:ff:ff:ff:ff
+arp.opcode == 1 and arp.dst.hw_mac == 00:00:00:00:00:00
