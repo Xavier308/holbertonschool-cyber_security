@@ -1,2 +1,2 @@
+#!/bin/bash
 zRlD6qdG6eCLQ1h3pKA8sGbR5jmadzbA
-
