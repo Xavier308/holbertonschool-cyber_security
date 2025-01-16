@@ -1,27 +1,32 @@
 #!/bin/bash
 
-# Capture the first argument passed to the script
-password="$1"
+# Check if an argument is provided
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 '{xor}<base64_string>'"
+    exit 1
+fi
 
-# Remove the '{xor}' prefix from the string
-password="${password#'{xor}'}"
+# Remove the "{xor}" prefix and decode from base64
+encoded="${1#'{xor}'}"
+decoded=$(echo "$encoded" | base64 --decode 2>/dev/null)
 
-# Decode the string from Base64 using OpenSSL
-decoded_password=$(echo -n "$password" | openssl enc -base64 -d)
+# Check if decoding was successful
+if [ $? -ne 0 ]; then
+    echo "Error decoding base64."
+    exit 2
+fi
 
-# Initialize a variable to store the XOR operation result
+# Initialize output variable
 output=""
 
-# Iterate over each character of the decoded string
-for ((i = 0; i < ${#decoded_password}; i++)); do
-    # Retrieve the character at the current position
-    char="${decoded_password:$i:1}"
-    # Convert the character to its ASCII code and
-    # perform an XOR operation with 95
-    xor_result=$(( $(printf "%d" "'$char") ^ 95 ))
-    # Append the result to the output variable
-    output+=$(printf "\\$(printf '%03o' $xor_result)")
+# XOR each character with 95
+for (( i=0; i<${#decoded}; i++ )); do
+    # Get ASCII value of character
+    ord=$(printf "%d" "'${decoded:$i:1}")
+    # Perform XOR with 95 and convert back to character
+    xored_char=$(printf \\$(printf "%o" $((ord ^ 95))))
+    output+="$xored_char"
 done
 
-# Display the result
+# Output the result
 echo "$output"
