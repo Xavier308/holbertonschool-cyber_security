@@ -21,12 +21,14 @@ output=""
 
 # XOR each character with 95
 for (( i=0; i<${#decoded}; i++ )); do
-    # Get ASCII value of character
     ord=$(printf "%d" "'${decoded:$i:1}")
     # Perform XOR with 95 and convert back to character
     xored_char=$(printf \\$(printf "%o" $((ord ^ 95))))
-    output+="$xored_char"
+    # Append only if it's not a null character
+    if [[ $xored_char != $'\0' ]]; then
+        output+="$xored_char"
+    fi
 done
 
 # Output the result
-echo "$output"
+echo -n "$output"
