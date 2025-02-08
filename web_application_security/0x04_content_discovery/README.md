@@ -41,3 +41,12 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 ## Interesting
 
 curl -s http://web0x04.hbtn/favicon.ico | md5sum
+
+octal
+157ee2507e08377682f592463fa54e2
+
+binary:
+235ee4713e0873082f594637fa066e2
+235ee4713e08730082f594637fa066e2
+
+https://wiki.owasp.org/index.php/OWASP_favicon_database
