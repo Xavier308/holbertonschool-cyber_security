@@ -40,7 +40,9 @@ def read_write_heap(pid, search_string, replace_string):
                 sys.exit(1)
 
             # Get heap start and end
-            heap_start, heap_end = [int(x, 16) for x in heap.split()[0].split("-")]
+            heap_start, heap_end = [
+                int(x, 16) for x in heap.split()[0].split("-")
+                ]
 
         # Open memory
         with open(mem_path, "r+b") as mem_file:
@@ -51,7 +53,10 @@ def read_write_heap(pid, search_string, replace_string):
             replace_bytes = replace_string.encode()
 
             if len(replace_bytes) > len(search_bytes):
-                print("Error: Replacement string must not be longer than the search string.")
+                print(
+                    "Error: Replacement string must not"
+                    " be longer than the search string."
+                    )
                 sys.exit(1)
 
             offset = heap_data.find(search_bytes)
@@ -63,7 +68,10 @@ def read_write_heap(pid, search_string, replace_string):
             mem_file.seek(heap_start + offset)
             mem_file.write(replace_bytes.ljust(len(search_bytes), b'\x00'))
 
-            print(f"Successfully replaced '{search_string}' with '{replace_string}' in the heap.")
+            print(
+                f"Successfully replaced '{search_string}' "
+                f"with '{replace_string}' in the heap."
+            )
 
     except PermissionError:
         print("Error: Permission denied. Try running as sudo.")
