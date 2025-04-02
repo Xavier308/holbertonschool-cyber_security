@@ -30,18 +30,49 @@ This repository covers comprehensive cybersecurity topics, providing in-depth ex
   - Restricting system resources
   - Least privilege principle
 
-### 3. Network Security
-- **Protocols and Servers**
-  - Network protocol analysis
-  - Secure communication protocols
-  - Server hardening techniques
-  - Network defense strategies
+- **Protocols Servers**
+  - Server configuration and security
+  - Service management
+  - Secure server deployment
+  - Logging and monitoring
 
 - **Buffer Overflow**
   - Understanding buffer overflow vulnerabilities
   - Exploitation techniques
   - Prevention and mitigation strategies
   - Memory management security
+
+### 3. Network Security
+- **Passive Reconnaissance**
+  - Information gathering techniques
+  - Open-source intelligence (OSINT)
+  - Network mapping
+  - Passive scanning methods
+
+- **Active Reconnaissance**
+  - Direct network probing
+  - Active information gathering
+  - Vulnerability assessment techniques
+  - Reconnaissance tools and methodologies
+
+- **Nmap Live Hosts Discovery**
+  - Network host identification
+  - Scanning techniques
+  - Host discovery methods
+  - Nmap practical applications
+
+- **Wireshark Basics**
+  - Network packet analysis
+  - Traffic capturing
+  - Protocol dissection
+  - Network troubleshooting
+  - Security analysis techniques
+
+- **Nmap Advanced Port Scans**
+  - Advanced scanning techniques
+  - Port enumeration
+  - Stealth scanning
+  - Network mapping and discovery
 
 ### 4. Web Application Security
 - **Web Fundamentals**
@@ -86,5 +117,6 @@ This repository covers comprehensive cybersecurity topics, providing in-depth ex
   - Rapid response strategies
   - Forensic analysis techniques
   - Recovery and mitigation processes
+
 
 **Note**: This repository is for educational purposes. Always practice ethical hacking and obtain proper authorization before testing security vulnerabilities.
