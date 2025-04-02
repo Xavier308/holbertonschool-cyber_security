@@ -42,8 +42,3 @@ By the end of this project, you will be able to explain:
 ## Disclaimer
 This project is for educational purposes only. Always obtain proper authorization before attempting any security testing.
 
-## References
-- John the Ripper
-- Hashcat
-- OWASP
-
