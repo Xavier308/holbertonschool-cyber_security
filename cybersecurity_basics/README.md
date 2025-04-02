@@ -52,11 +52,6 @@ This directory covers fundamental concepts in cybersecurity, providing a solid f
 - Sample code demonstrations
 - Real-world cryptography use cases
 
-## Resources
-- Recommended reading
-- Online learning platforms
-- Additional reference materials
-
 ## Prerequisites
 - Basic understanding of computer systems
 - Fundamental programming knowledge
@@ -64,9 +59,3 @@ This directory covers fundamental concepts in cybersecurity, providing a solid f
 
 ## Disclaimer
 These materials are for educational purposes only. Always follow ethical guidelines and legal requirements when applying cybersecurity knowledge.
-
-## Contributing
-Contributions are welcome! Please read the contribution guidelines before getting started.
-
-## License
-[Specify your license here]
