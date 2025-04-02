@@ -51,18 +51,5 @@ By the end of this project, you will be able to:
 - Root or sudo privileges
 - Bash scripting skills
 
-## Disclaimer
-These materials are for educational purposes only. Always obtain proper authorization before performing security tests.
-
-## Resources
-- Linux file system hierarchy
-- Network security principles
-- Linux security commands
-
-## Contributing
-Contributions are welcome! Please follow ethical hacking guidelines.
-
-## License
-[Specify your license here]
 
 **Note**: Cybersecurity requires responsible and ethical practice.
