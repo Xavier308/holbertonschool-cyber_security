@@ -1,12 +1,58 @@
 # Permissions, SUID & SGID
 
-General
-Allowed editors: vi, vim, emacs.
-All your scripts will be tested on Kali Linux.
-You must substitute the IP range for $1.
-All your files should end with a new line (Why?)
-The first line of all your files should be exactly #!/bin/bash.
-A README.md file, at the root of the folder of the project, is mandatory
-You are not allowed to use backticks, && or ||.
-Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
-All your files must be executable
+## Overview
+This project provides a comprehensive exploration of Linux file permissions, user management, and special permission bits.
+
+## Learning Objectives
+By the end of this project, you will understand:
+- Linux user-based permission groups
+- File permission management commands
+- SUID and SGID special permissions
+- User and group management
+- File ownership manipulation
+
+## Key Topics Covered
+
+### 1. User and Group Management
+- Creating new users
+- Creating new groups
+- Changing file ownership
+- Managing group permissions
+
+### 2. Permission Manipulation
+- Using `chmod` command
+- Understanding permission groups
+- Setting special permission bits
+- Managing file access controls
+
+### 3. Special Permissions
+- SUID (Set User ID)
+- SGID (Set Group ID)
+- Identifying files with special permissions
+- Security implications of special permissions
+
+### 4. Advanced Permission Techniques
+- Changing file ownership
+- Setting read-only permissions
+- Managing empty file permissions
+- Auditing file permission changes
+
+## Key Commands
+- `chmod`
+- `sudo`
+- `su`
+- `chown`
+- `chgrp`
+- `id`
+- `groups`
+- `adduser`
+- `useradd`
+
+## Tools and Techniques
+- User management
+- Group management
+- Permission modification
+- Security auditing
+
+
+**Note**: Cybersecurity requires responsible and ethical practice.
